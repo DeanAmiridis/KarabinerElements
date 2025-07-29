@@ -1,0 +1,34 @@
+{
+    "description": "(Browser Cycle) - Changes Left Shift+Tab to Cmd+Shift+] and Cmd+Shift+Tab to Cmd+Shift+[",
+    "manipulators": [
+        {
+            "from": {
+                "key_code": "tab",
+                "modifiers": { "mandatory": ["left_shift"] }
+            },
+            "to": [
+                {
+                    "key_code": "close_bracket",
+                    "modifiers": ["left_command", "left_shift"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "key_code": "tab",
+                "modifiers": {
+                    "mandatory": ["left_command", "left_shift"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "open_bracket",
+                    "modifiers": ["left_command", "left_shift"]
+                }
+            ],
+            "type": "basic"
+        }
+    ]
+}
