@@ -1,0 +1,63 @@
+{
+    "description": "Double-tap Left Control to trigger Command+Control+Spacebar (Emoji Picker)",
+    "manipulators": [
+        {
+            "conditions": [
+                {
+                    "name": "option_double_tap_state",
+                    "type": "variable_if",
+                    "value": 0
+                }
+            ],
+            "from": {
+                "key_code": "left_control",
+                "modifiers": { "optional": ["any"] }
+            },
+            "parameters": { "basic.to_if_alone_timeout_milliseconds": 100 },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "option_double_tap_state",
+                        "value": 1
+                    }
+                }
+            ],
+            "to_if_alone": [
+                { "key_code": "left_control" },
+                {
+                    "set_variable": {
+                        "name": "option_double_tap_state",
+                        "value": 0
+                    }
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "option_double_tap_state",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": {
+                "key_code": "left_control",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [
+                {
+                    "key_code": "spacebar",
+                    "modifiers": ["left_command", "left_control"]
+                },
+                {
+                    "set_variable": {
+                        "name": "option_double_tap_state",
+                        "value": 0
+                    }
+                }
+            ],
+            "type": "basic"
+        }
+    ]
+}
