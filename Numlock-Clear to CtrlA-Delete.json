@@ -1,0 +1,22 @@
+{
+  "description": "Numlock-Clear to CtrlA-Delete",
+  "manipulators": [
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "keypad_num_lock"
+      },
+      "to": [
+        {
+          "key_code": "a",
+          "modifiers": [
+            "left_command"
+          ]
+        },
+        {
+          "key_code": "delete_or_backspace"
+        }
+      ]
+    }
+  ]
+}
