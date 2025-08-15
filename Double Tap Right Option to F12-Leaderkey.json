@@ -1,0 +1,58 @@
+{
+    "description": "Double-tap right option -> send fn+F12",
+    "manipulators": [
+        {
+            "conditions": [
+                {
+                    "name": "right_option_pending",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": {
+                "key_code": "right_option",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "right_option_pending",
+                        "value": 0
+                    }
+                },
+                {
+                    "key_code": "f12",
+                    "modifiers": ["fn"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "key_code": "right_option",
+                "modifiers": { "optional": ["any"] }
+            },
+            "parameters": { "basic.to_delayed_action_delay_milliseconds": 250 },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "right_option_pending",
+                        "value": 1
+                    }
+                },
+                { "key_code": "vk_none" }
+            ],
+            "to_delayed_action": {
+                "to_if_invoked": [
+                    {
+                        "set_variable": {
+                            "name": "right_option_pending",
+                            "value": 0
+                        }
+                    }
+                ]
+            },
+            "type": "basic"
+        }
+    ]
+}
