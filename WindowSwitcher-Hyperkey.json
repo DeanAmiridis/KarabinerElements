@@ -1,0 +1,21 @@
+{
+    "description": "WinSwitcher-Remap Left Command+Tab to Hyper+[",
+    "manipulators": [
+        {
+            "from": {
+                "key_code": "tab",
+                "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "open_bracket",
+                    "modifiers": ["left_command", "left_shift", "left_control", "left_option"]
+                }
+            ],
+            "type": "basic"
+        }
+    ]
+}
